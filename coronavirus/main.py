@@ -65,7 +65,7 @@ def get_data(city: str = None, skip: int = 0, limit: int = 100, db: Session = De
 
 
 def bg_task(url: HttpUrl, db: Session):
-    """这里注意一个坑，不要在后台任务的参数中db: Session = Depends(get_db)这样导入依赖"""
+    """不要在后台任务的参数中db: Session = Depends(get_db)这样导入依赖"""
 
     city_data = requests.get(url=f"{url}?source=jhu&country_code=CN&timelines=false")
 
